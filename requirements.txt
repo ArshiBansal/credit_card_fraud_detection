@@ -1,0 +1,16 @@
+# Core
+pyspark>=3.5.0
+datasets>=2.19.0
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Visualization
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Machine Learning (optional but useful for comparison)
+scikit-learn>=1.4.0
+imbalanced-learn>=0.12.0
+
+# Utilities
+tqdm>=4.66.0
