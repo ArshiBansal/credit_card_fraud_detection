@@ -2,18 +2,18 @@
 
 # Credit Card Fraud Detection
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=36BCF7&center=true&vCenter=true&width=720&lines=One+transaction.+A+signal+in+the+noise.;Find+the+fraud.+Understand+the+why.;Turn+scores+into+cost-aware+decisions." alt="Animated text: Find the fraud, understand the why, and make cost-aware decisions">
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=4A6FA5&center=true&vCenter=true&width=720&lines=One+transaction.+A+signal+in+the+noise.;Find+the+fraud.+Understand+the+why.;Turn+scores+into+cost-aware+decisions." alt="Animated text: Find the fraud, understand the why, and make cost-aware decisions">
 
 **A transaction is only a row of numbers until something looks different.** This project follows that difference from first exploration to an explainable, cost-aware fraud decision.
 
 <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB" alt="Python 3.10 or newer">
-<img src="https://img.shields.io/badge/Jupyter-Notebook%20workflow-F37626" alt="Jupyter notebook workflow">
+<img src="https://img.shields.io/badge/Jupyter-Notebook%20workflow-526D82" alt="Jupyter notebook workflow">
 <img src="https://img.shields.io/badge/Focus-Imbalanced%20learning-8A2BE2" alt="Imbalanced learning">
 <img src="https://img.shields.io/badge/Explainability-SHAP-00A98F" alt="SHAP explainability">
 
 <br>
 
-<img src="https://img.shields.io/badge/Challenge-Rare%20fraud%20signals-E07A2D" alt="Challenge: rare fraud signals">
+<img src="https://img.shields.io/badge/Challenge-Rare%20fraud%20signals-6B5B7B" alt="Challenge: rare fraud signals">
 <img src="https://img.shields.io/badge/Method-Compare%20and%20explain-5470C6" alt="Method: compare and explain">
 <img src="https://img.shields.io/badge/Outcome-Cost--aware%20decisions-238636" alt="Outcome: cost-aware decisions">
 
@@ -51,9 +51,9 @@ flowchart LR
     G -->|No| I["No fraud alert"]
     E -. informs .-> F
 
-    classDef data fill:#eaf4ff,stroke:#3776ab,color:#17324d
-    classDef model fill:#f1eaff,stroke:#805ad5,color:#30224a
-    classDef decision fill:#e8f7ef,stroke:#2f855a,color:#1c4532
+    classDef data fill:#e8eef5,stroke:#526d82,color:#263746
+    classDef model fill:#eeeaf2,stroke:#756184,color:#352b3d
+    classDef decision fill:#e8f0ec,stroke:#527568,color:#263a32
     class A,B data
     class C,D,E model
     class F,G,H,I decision
@@ -143,7 +143,7 @@ In the checked-in model comparison, the XGBoost (`scale_pos_weight`) entry repor
 <img src="https://img.shields.io/badge/Recall-0.837-805AD5" alt="Recall: 0.837">
 <img src="https://img.shields.io/badge/F1-0.854-00A98F" alt="F1: 0.854">
 <img src="https://img.shields.io/badge/PR--AUC-0.879-238636" alt="PR-AUC: 0.879">
-<img src="https://img.shields.io/badge/ROC--AUC-0.979-E07A2D" alt="ROC-AUC: 0.979">
+<img src="https://img.shields.io/badge/ROC--AUC-0.979-526D82" alt="ROC-AUC: 0.979">
 </p>
 
 | Metric | Score |
