@@ -11,6 +11,12 @@
 <img src="https://img.shields.io/badge/Focus-Imbalanced%20learning-8A2BE2" alt="Imbalanced learning">
 <img src="https://img.shields.io/badge/Explainability-SHAP-00A98F" alt="SHAP explainability">
 
+<br>
+
+<img src="https://img.shields.io/badge/Challenge-Rare%20fraud%20signals-E07A2D" alt="Challenge: rare fraud signals">
+<img src="https://img.shields.io/badge/Method-Compare%20and%20explain-5470C6" alt="Method: compare and explain">
+<img src="https://img.shields.io/badge/Outcome-Cost--aware%20decisions-238636" alt="Outcome: cost-aware decisions">
+
 </div>
 
 > [!NOTE]
@@ -79,6 +85,9 @@ Run the notebooks in order. Each one picks up where the last left off.
 
 > **The path:** evidence → model → explanation → decision
 
+> [!IMPORTANT]
+> A fraud detector is not judged by how often it says “legitimate.” The real test is whether it can find rare fraud cases **without overwhelming analysts with false alarms**.
+
 ## Start the investigation
 
 ### What you need
@@ -129,6 +138,14 @@ Open the notebooks from `notebooks/` and run them there so their relative `../da
 
 In the checked-in model comparison, the XGBoost (`scale_pos_weight`) entry reports:
 
+<p align="center">
+<img src="https://img.shields.io/badge/Precision-0.872-3776AB" alt="Precision: 0.872">
+<img src="https://img.shields.io/badge/Recall-0.837-805AD5" alt="Recall: 0.837">
+<img src="https://img.shields.io/badge/F1-0.854-00A98F" alt="F1: 0.854">
+<img src="https://img.shields.io/badge/PR--AUC-0.879-238636" alt="PR-AUC: 0.879">
+<img src="https://img.shields.io/badge/ROC--AUC-0.979-E07A2D" alt="ROC-AUC: 0.979">
+</p>
+
 | Metric | Score |
 | --- | ---: |
 | Precision | `0.872` |
@@ -144,6 +161,11 @@ The saved threshold configuration records a minimum-cost threshold of **`0.64`**
 Results depend on the data, model, and assumptions used.
 </p>
 
+<p align="center">
+<img src="https://img.shields.io/badge/Threshold-0.64-805AD5" alt="Recorded threshold: 0.64">
+<img src="https://img.shields.io/badge/Minimum%20test%20cost-9160-238636" alt="Recorded minimum test cost: 9160">
+</p>
+
 ## The decision is part of the model
 
 A high ranking score does not decide how many transactions to flag. That depends on the threshold—and on what a missed fraud or a false alarm costs.
@@ -153,7 +175,10 @@ A high ranking score does not decide how many transactions to flag. That depends
 - **Keep evaluation honest.** The cost-sensitive notebook selects and reports thresholds against test labels. For an unbiased final evaluation, choose the threshold using training/validation data and reserve an untouched test set for final measurement.
 - **Question defaults.** A `0.50` threshold is ~~always the right answer~~ simply a starting point; the operating point should reflect the real trade-off between missed fraud and false alerts.
 
-> A score estimates risk. A threshold turns that estimate into an action. The cost assumptions explain why that action might make sense.
+> *“A score estimates risk. A threshold turns that estimate into an action. The cost assumptions explain why that action might make sense.”*
+
+> [!CAUTION]
+> **Threshold `0.64` is not a universal setting.** It reflects the cost values saved with this experiment; changing the relative cost of missed fraud and false alerts can change the preferred operating point.
 
 > [!WARNING]
 > This project does not include live transaction ingestion, deployment, monitoring, or operational controls. Do not use the saved model or threshold for real-world decisions without suitable validation, oversight, and domain review.
