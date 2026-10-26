@@ -29,6 +29,30 @@ That makes fraud detection a series of questions, not just a model-training exer
 
 The result is a practical walkthrough from raw data to a decision—and a reminder that a prediction score is only useful when its consequences are understood.
 
+## From transaction to decision
+
+The notebooks follow the main path from data preparation to an evaluated decision. Model explanations and cost analysis add context before a threshold is chosen.
+
+```mermaid
+flowchart LR
+    A["Transaction data"] --> B["Explore and prepare<br/>Notebook 01"]
+    B --> C["Train and compare models<br/>Notebook 02"]
+    C --> D["Fraud risk score"]
+    D --> E["Explain predictions with SHAP<br/>Notebook 03"]
+    D --> F["Evaluate costs and thresholds<br/>Notebook 04"]
+    F --> G{"Score meets<br/>chosen threshold?"}
+    G -->|Yes| H["Flag for review"]
+    G -->|No| I["No fraud alert"]
+    E -. informs .-> F
+
+    classDef data fill:#eaf4ff,stroke:#3776ab,color:#17324d
+    classDef model fill:#f1eaff,stroke:#805ad5,color:#30224a
+    classDef decision fill:#e8f7ef,stroke:#2f855a,color:#1c4532
+    class A,B data
+    class C,D,E model
+    class F,G,H,I decision
+```
+
 <details>
 <summary><strong>Project snapshot</strong></summary>
 
