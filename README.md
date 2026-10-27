@@ -40,23 +40,16 @@ The result is a practical walkthrough from raw data to a decision—and a remind
 The notebooks follow the main path from data preparation to an evaluated decision. Model explanations and cost analysis add context before a threshold is chosen.
 
 ```mermaid
-flowchart LR
-    A["Transaction data"] --> B["Explore and prepare<br/>Notebook 01"]
-    B --> C["Train and compare models<br/>Notebook 02"]
-    C --> D["Fraud risk score"]
-    D --> E["Explain predictions with SHAP<br/>Notebook 03"]
-    D --> F["Evaluate costs and thresholds<br/>Notebook 04"]
-    F --> G{"Score meets<br/>chosen threshold?"}
+flowchart TD
+    A["Transaction data"] --> B["Explore and prepare (Notebook 01)"]
+    B --> C["Train and compare models (Notebook 02)"]
+    C --> D["Best model produces fraud scores"]
+    D --> E["Explain predictions with SHAP (Notebook 03)"]
+    D --> F["Evaluate costs and choose threshold (Notebook 04)"]
+    D --> G{"Score >= chosen threshold?"}
+    F --> G
     G -->|Yes| H["Flag for review"]
     G -->|No| I["No fraud alert"]
-    E -. informs .-> F
-
-    classDef data fill:#e8eef5,stroke:#526d82,color:#263746
-    classDef model fill:#eeeaf2,stroke:#756184,color:#352b3d
-    classDef decision fill:#e8f0ec,stroke:#527568,color:#263a32
-    class A,B data
-    class C,D,E model
-    class F,G,H,I decision
 ```
 
 <details>
